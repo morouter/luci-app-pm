@@ -8,6 +8,7 @@ Luci plugin that make ImmortalWRT poweroff and reboot to easy.
 - It is **very small in size.**
 ## ⚠️ Warning
 - The power-off function may not be available on all devices.
+- It only supports using apk package manager. So you must be make sure your OpenWrt version in 25.12 or later.
 - So far, I have only successfully tested it on my intel Celeron J4125 and Friendly Nanopi R5C 4+32G.
 ## 🛠 How to build
 [Generic Docs](https://867678.xyz/doc/build)
