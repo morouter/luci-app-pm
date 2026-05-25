@@ -2,7 +2,6 @@
 > Luci plugin that make ImmortalWRT poweroff and reboot to easy.
 ## ⬇️ Downloads
 [GitHub Release](https://github.com/mokanove/luci-app-pm/releases)
-[Backup Address](https://ghfast.top/https://github.com/mokanove/luci-app-pm/releases)
 ## 🚀 Features
 - OpenWrt can also be shutdown.
 - That inhumane restart page be discarded.
