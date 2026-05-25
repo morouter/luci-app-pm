@@ -12,6 +12,6 @@ Luci plugin that make ImmortalWRT poweroff and reboot to easy.
 ## 🛠 How to build
 [Generic Docs](https://867678.xyz/doc/build)
 ## ⚖️ License
-> This application provides **no warranties.**
+> This application by [Mo Public License](https://github.com/mokanove/mokanove/blob/main/docs/license.md)
 >
 > The .po file is licensed under **GPL-2.0.**
