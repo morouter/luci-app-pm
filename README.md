@@ -1,5 +1,5 @@
 # luci-app-pm
-> Luci plugin that make ImmortalWRT poweroff and reboot to easy.
+Luci plugin that make ImmortalWRT poweroff and reboot to easy.
 ## ⬇️ Downloads
 [GitHub Release](https://github.com/mokanove/luci-app-pm/releases)
 ## 🚀 Features
