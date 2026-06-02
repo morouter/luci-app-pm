@@ -12,7 +12,7 @@ jobs:
     name: Build Generic LuCI-APP
     runs-on: ubuntu-latest
     env:
-      sdk_name: "openwrt-sdk-25.12.4-x86-64_gcc-14.3.0_musl.Linux-x86_64"
+      sdk_name: "openwrt-sdk-x86-64_gcc-14.3.0_musl.Linux-x86_64"
       project_name: "luci-app-pm"
 
     steps:
@@ -54,6 +54,6 @@ jobs:
           make_latest: true
           body: |
             # 📝 Release Notes
-            - Fixed LICENSE Bug
+            - Upgrade SDK version to SNAPSHOT
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
