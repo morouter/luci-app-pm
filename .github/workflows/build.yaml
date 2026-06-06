@@ -19,8 +19,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@main
 
-      - name: Install Build Dependencies
-        uses: mokanove/mokanove/actions/luci-env@main
+      - name: Prepare build environment
+        uses: mokanove/mokanove/actions/build-env@main
 
       - name: Prepare SDK
         uses: mokanove/mokanove/actions/prepare-sdk@main
@@ -54,9 +54,6 @@ jobs:
           make_latest: true
           body: |
             # 📝 Release Notes
-            - Upgrade SDK
-            - Some minor fixes
-            - Optimize Chinese support
-            - Preparing to add Spanish support
+            - Test new action
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
