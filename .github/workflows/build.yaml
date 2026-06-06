@@ -54,6 +54,9 @@ jobs:
           make_latest: true
           body: |
             # 📝 Release Notes
-            - Upgrade SDK version to SNAPSHOT
+            - Upgrade SDK
+            - Some minor fixes
+            - Optimize Chinese support
+            - Preparing to add Spanish support
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
