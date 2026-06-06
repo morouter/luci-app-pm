@@ -9,14 +9,14 @@ permissions:
 
 jobs:
   build:
-    name: Build Generic LuCI-APP
+    name: Build
     runs-on: ubuntu-latest
     env:
       sdk_name: "openwrt-sdk-x86-64_gcc-14.3.0_musl.Linux-x86_64"
       project_name: "luci-app-pm"
 
     steps:
-      - name: Checkout Code
+      - name: Checkout
         uses: actions/checkout@main
 
       - name: Install Build Dependencies
