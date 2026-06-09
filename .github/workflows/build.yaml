@@ -36,7 +36,8 @@ jobs:
         shell: bash
         run: |
           mv ${{ env.project_name }} openwrt/package/
-          make openwrt/package/${{ env.project_name }}/compile V=s -j$(nproc)
+          cd openwrt
+          make package/${{ env.project_name }}/compile V=s -j$(nproc)
 
       - name: Release
         uses: softprops/action-gh-release@master
