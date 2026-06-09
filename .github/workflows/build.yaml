@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       project_name: "luci-app-pm"
+      sdk_name: "openwrt-sdk-x86-64_gcc-14.3.0_musl.Linux-x86_64"
 
     steps:
       - name: Checkout
@@ -30,20 +31,20 @@ jobs:
       - name: Prepare SDK
         uses: mokanove/mokanove/actions/prepare-sdk@main
         with:
-          sdk_name: openwrt
+          sdk_name: ${{ env.sdk_name }}
 
       - name: Build!
         shell: bash
         run: |
-          mv ${{ env.project_name }} openwrt/package/
-          cd openwrt
+          mv ${{ env.project_name }} ${{ env.sdk_name }}/package/
+          cd ${{ env.sdk_name }}
           make package/${{ env.project_name }}/compile V=s -j$(nproc)
 
       - name: Release
         uses: softprops/action-gh-release@master
         with:
           tag_name: V${{ steps.get_version.outputs.version }}
-          files: openwrt/bin/packages/**/*.apk
+          files: ${{ env.sdk_name }}/bin/packages/**/*.apk
           make_latest: true
           body: |
             # 📝 Release Notes
