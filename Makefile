@@ -1,8 +1,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-pm
-PKG_VERSION:=0.4.2
+PKG_VERSION:=0.4.3
 PKG_RELEASE:=1
+PKG_MAINTAINER:=MoKanove
 
 LUCI_TITLE:=LuCI APP PowerManager
 LUCI_DESCRIPTION:=Luci plugin for makes OpenWrt poweroff and reboot easy.

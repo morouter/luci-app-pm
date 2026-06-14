@@ -1,13 +1,12 @@
 {
 	"admin/system/powermanager": {
 		"title": "PowerManager",
+		"order": 99,
 		"action": {
-			"type": "view",
-			"path": "index"
+			"type": "firstchild"
 		},
-		"order": 99
-	},
-	"admin/system/reboot": {
-        "disabled": true
-    }
+		"depends": {
+             "acl": ["luci-app-pm"]
+         }
+	}
 }
