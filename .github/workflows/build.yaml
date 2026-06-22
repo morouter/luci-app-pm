@@ -27,7 +27,10 @@ jobs:
           cd ${{ env.project_name }}
           VERSION=$(grep -E "^PKG_VERSION[[:space:]]*:=" Makefile | sed -E 's/.*:=[[:space:]]*//' | tr -d '[:space:]')
           echo "version=$VERSION" >> $GITHUB_OUTPUT
-
+      
+      - name: Preparing build environment
+        uses: mokanove/mokanove/actions/build-env@main
+        
       - name: Prepare SDK
         uses: mokanove/mokanove/actions/prepare-sdk@main
         with:
