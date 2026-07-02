@@ -35,7 +35,7 @@ jobs:
         id: sdk
         uses: mokanove/mokanove/actions/prepare-sdk@main
         with:
-          sdk_name: ${{ env.sdk_arch }}
+          sdk_arch: ${{ env.sdk_arch }}
 
       - name: Build!
         shell: bash
