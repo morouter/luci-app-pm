@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       project_name: "luci-app-pm"
-      sdk_name: "openwrt-sdk-x86-64_gcc-14.3.0_musl.Linux-x86_64"
+      sdk_arch: "x86-64"
 
     steps:
       - name: Checkout
@@ -27,27 +27,28 @@ jobs:
           cd ${{ env.project_name }}
           VERSION=$(grep -E "^PKG_VERSION[[:space:]]*:=" Makefile | sed -E 's/.*:=[[:space:]]*//' | tr -d '[:space:]')
           echo "version=$VERSION" >> $GITHUB_OUTPUT
-      
+
       - name: Preparing build environment
         uses: mokanove/mokanove/actions/build-env@main
-        
+
       - name: Prepare SDK
+        id: sdk
         uses: mokanove/mokanove/actions/prepare-sdk@main
         with:
-          sdk_name: ${{ env.sdk_name }}
+          sdk_name: ${{ env.sdk_arch }}
 
       - name: Build!
         shell: bash
         run: |
-          mv ${{ env.project_name }} ${{ env.sdk_name }}/package/
-          cd ${{ env.sdk_name }}
-          make package/${{ env.project_name }}/compile V=s -j$(nproc)
+          mv ${{ env.project_name }} ${{ steps.sdk.outputs.sdk_dir }}/package/
+          cd ${{ steps.sdk.outputs.sdk_dir }}
+          make package/${{ steps.sdk.outputs.sdk_dir }}/compile V=s -j$(nproc)
 
       - name: Release
         uses: softprops/action-gh-release@master
         with:
           tag_name: V${{ steps.get_version.outputs.version }}
-          files: ${{ env.sdk_name }}/bin/packages/x86_64/base/*.apk
+          files: ${{ steps.sdk.outputs.sdk_dir }}/bin/packages/x86_64/base/*.apk
           make_latest: true
           body: |
             # 📝 Release Note
