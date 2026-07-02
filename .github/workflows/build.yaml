@@ -42,7 +42,7 @@ jobs:
         run: |
           mv ${{ env.project_name }} ${{ steps.sdk.outputs.sdk_dir }}/package/
           cd ${{ steps.sdk.outputs.sdk_dir }}
-          make package/${{ steps.sdk.outputs.sdk_dir }}/compile V=s -j$(nproc)
+          make package/${{ env.project_name }}/compile V=s -j$(nproc)
 
       - name: Release
         uses: softprops/action-gh-release@master
