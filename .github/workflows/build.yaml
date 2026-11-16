@@ -68,7 +68,7 @@ jobs:
       - name: Send to mirror
         uses: moaeiou/moaeiou/actions/rsync@main
         with:
-          local: ${{ steps.sdk.outputs.sdk_dir }}/bin/packages/x86_64/base/
+          local: ${{ steps.sdk.outputs.sdk_name }}/bin/packages/x86_64/base/
           remote: luci-app/pm/
           key: ${{ secrets.SSH_KEY }}
           extra: --delete
