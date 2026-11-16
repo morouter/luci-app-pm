@@ -37,8 +37,8 @@ jobs:
           sdk_name=openwrt-sdk-x86_64_gcc-14.4.0_musl.Linux-x86_64
           echo "sdk_name=$sdk_name" >> $GITHUB_OUTPUT
 
-          curl -LO https://la.867678.xyz/sdk/$sdk_name.tar.zst
-
+          curl https://la.867678.xyz/sdk/$sdk_name.tar.zst
+          exit 1
           tar -xvf $sdk_name.tar.zst
           rm $sdk_name.tar.zst
           cd $sdk_name
