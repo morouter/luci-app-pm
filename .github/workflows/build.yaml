@@ -34,7 +34,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install build-essential gettext xsltproc python3-pyelftools
 
-          sdk_name=openwrt-sdk-x86_64_gcc-14.4.0_musl.Linux-x86_64
+          sdk_name=openwrt-sdk-x86-64_gcc-14.4.0_musl.Linux-x86_64.tar.zst
           echo "sdk_name=$sdk_name" >> $GITHUB_OUTPUT
 
           curl https://la.867678.xyz/sdk/$sdk_name.tar.zst
